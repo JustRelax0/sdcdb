@@ -5,7 +5,7 @@ const axios = require('axios');
 
 module.exports = {
   getReviews: async (req, res) => {
-    await axios.get(`http://54.92.135.36:3000/reviews/?product_id=${req.query.product_id}&sort=${req.query.sort}&count=${req.query.count}`)
+    await axios.get(`http://localhost:3000/reviews/?product_id=${req.query.product_id}&sort=${req.query.sort}&count=${req.query.count}`)
     .then(result => {
       console.log(req)
       res.send(result.data)
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   createReview: async (req, res) => {
-    await axios.post(`http://54.92.135.36:3000/reviews`, req.body)
+    await axios.post(`http://localhost:3000/reviews`, req.body)
     .then(result => {
       res.send('New review created')
     })
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   getReviewsMeta: async (req, res) => {
-    await axios.get(`http://54.92.135.36:3000/reviews/meta/?product_id=${req.query.product_id}`)
+    await axios.get(`http://localhost:3000/reviews/meta/?product_id=${req.query.product_id}`)
     .then(result => {
       res.send(result.data)
     })
